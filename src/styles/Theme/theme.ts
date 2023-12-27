@@ -1,24 +1,6 @@
 // import { createTheme } from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
-import { deepPurple, purple } from "@mui/material/colors";
 
-// export const theme = createTheme({
-//   palette: {
-//     mode: "light",
-//     primary: {
-//       main: deepPurple[500],
-//       light: deepPurple[300],
-//       dark: deepPurple[900],
-//       contrastText: "#fff",
-//     },
-//     secondary: {
-//       main: purple[500],
-//       light: purple[300],
-//       dark: purple[900],
-//       contrastText: "#fff",
-//     },
-//   },
-// });
 interface ColorPalette {
   [key: string]: Record<string, string>;
 }

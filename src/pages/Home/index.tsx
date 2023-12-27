@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import Stack from "@mui/system/Stack";
 import DragList from "@components/DragList";
+import TaskManager from "@components/Data";
 
 const Home = () => {
   return (
@@ -21,15 +22,34 @@ const Home = () => {
         flexWrap="wrap"
         flexGrow={1}
       >
-        <Typography margin="2px" variant="h4">
-          World
-        </Typography>
+        <Stack
+          direction="column"
+          // justifyContent="space-between"
+          // alignItems="flex-start"
+          spacing={2}
+          width="100%"
+          height="100%"
+          flexGrow={1}
+        >
+          <Box width="100%" margin="2%">
+            <Box display="flex" justifyContent="center">
+              <Typography variant="h4">Task</Typography>
+            </Box>
+          </Box>
+          <Box width="100%" margin="2%">
+            <Box display="flex" justifyContent="center">
+              <Typography variant="h6">Add Task</Typography>
+            </Box>
+          </Box>
+        </Stack>
       </Box>
       <Box
         width="75%"
-        height="100vh"
+        height="100%"
         bgcolor="primary.light"
-        margin="2%"
+        margin="1%"
+        marginTop="2%"
+        marginLeft="0"
         borderRadius="16px"
         display="flex"
         flexWrap="wrap"
@@ -42,16 +62,15 @@ const Home = () => {
           spacing={2}
           width="100%"
           height="100%"
+          flexGrow={1}
         >
-          <Box >
-            <DragList />
-          </Box>
-          <Box bgcolor="secondary.main">
+          <Box>
             <Box margin="2%">
-              <Typography variant="h4">Hello</Typography>
-              <Typography variant="h4">Hello</Typography>
-              <Typography variant="h4">Hello</Typography>
+              <TaskManager />
             </Box>
+          </Box>
+          <Box>
+            <DragList />
           </Box>
         </Stack>
       </Box>
