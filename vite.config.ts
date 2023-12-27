@@ -11,9 +11,8 @@ export default defineConfig({
       "@styles": "/src/styles",
       "@pages": "/src/pages",
       "@src": "/src",
+      "@redux": "/src/redux",
+      "@utility": "/src/utility",
     },
-  },
-  server: {
-    hmr: { overlay: false },
   },
 });

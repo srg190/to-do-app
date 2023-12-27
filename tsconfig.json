@@ -24,7 +24,9 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@styles/*": ["./src/styles/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@redux/*": ["./src/redux/*"],
+      "@utility/*": ["./src/utility/*"]
     }
   },
   "references": [{ "path": "./tsconfig.node.json" }],

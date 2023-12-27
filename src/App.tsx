@@ -14,9 +14,10 @@ import {
 } from "react-router-dom";
 import Home from "@pages/Home";
 import Layout from "@styles/Layout";
+import { useAppSelector } from "@redux/store";
 
 function App() {
-  const [mode, setMode] = useState<PaletteMode>("dark");
+  const { mode } = useAppSelector((state) => state.theme);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   return (

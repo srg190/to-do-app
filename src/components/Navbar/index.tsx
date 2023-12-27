@@ -12,6 +12,10 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import ModeNightIcon from "@mui/icons-material/ModeNight";
+import { useAppDispatch, useAppSelector } from "@redux/store";
+import { themeAction } from "@redux/Slices/theme.slice";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -23,6 +27,10 @@ function Navbar() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
+
+  const { mode } = useAppSelector((state) => state.theme);
+  const dispatch = useAppDispatch();
+  const { togleTheme } = themeAction;
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -42,7 +50,7 @@ function Navbar() {
   return (
     <AppBar
       sx={{
-        position: "fixed",
+        position: "sticky",
         background: "none",
         boxShadow: "none",
         bgcolor: "primary.light",
@@ -66,7 +74,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            {/* LOGO */}
+            LOGO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -137,6 +145,9 @@ function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            <IconButton onClick={() => dispatch(togleTheme())}>
+              {mode === "light" ? <ModeNightIcon /> : <LightModeIcon />}
+            </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
