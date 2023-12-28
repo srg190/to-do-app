@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import Stack from "@mui/system/Stack";
 import DragList from "@components/DragList";
 import TaskManager from "@components/Data";
+import TaskForm from "@components/TaskForm";
 
 const Home = () => {
   return (
@@ -40,6 +41,9 @@ const Home = () => {
             <Box display="flex" justifyContent="center">
               <Typography variant="h6">Add Task</Typography>
             </Box>
+          </Box>
+          <Box width="100%" margin="2%">
+            <TaskForm />
           </Box>
         </Stack>
       </Box>
