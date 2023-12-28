@@ -6,54 +6,87 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { useAppSelector } from "@redux/store";
+import Popup from "@components/PopupOption";
 
 function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number
+  Id: string,
+  Todo: string,
+  Status: string,
+  assignDate?: Date,
+  modifydate?: Date
 ) {
-  return { name, calories, fat, carbs, protein };
+  return { Id, Todo, Status, assignDate, modifydate };
+}
+interface TaskData {
+  Id: string;
+  Todo: string;
+  Status: string;
+  assignDate?: Date;
+  modifydate?: Date;
 }
 
-const rows = [
-  createData("ToDo", 159, 6.0, 24, 4.0),
-  createData("Pending", 237, 9.0, 37, 4.3),
-  createData("Completed", 262, 16.0, 24, 6.0),
-  createData("Assign Date", 305, 3.7, 67, 4.3),
-  createData("", 356, 16.0, 49, 3.9),
-];
-
 export default function TaskManager() {
+  const { tasks } = useAppSelector((state) => state.task);
+  const [isSelected, setIsSelected] = React.useState(false);
+  const rows: TaskData[] = [];
+  Object.keys(tasks).forEach((v) => {
+    return rows.push(
+      createData(
+        v,
+        tasks[v].task,
+        tasks[v].status,
+        tasks[v].assignDate,
+        tasks[v].modifydate
+      )
+    );
+  });
   return (
     <TableContainer component={Paper}>
+      <Popup isSelected={isSelected} setIsSelected={setIsSelected} />
       <Table
-        sx={{ minWidth: 650, bgcolor: "background.default" }}
-        aria-label="simple table"
+        sx={{ bgcolor: "background.default" }}
+        stickyHeader
+        aria-label="sticky table"
       >
-        <TableHead>
+        <TableHead sx={{ bgcolor: "secondary.light" }}>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell align="center">Todo</TableCell>
+            <TableCell align="center">Status</TableCell>
+            <TableCell align="center">Assign Date</TableCell>
+            <TableCell align="center">Modify Date</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.Id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
-                {row.name}
+              <TableCell
+                draggable
+                onDragStart={(e) => {
+                  e.dataTransfer.setData("Id", row.Id);
+                  e.dataTransfer.effectAllowed = "move";
+                  e.dataTransfer.dropEffect = "move";
+                }}
+                onDrag={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  return setIsSelected(true);
+                }}
+                onDragEnd={() => setIsSelected(false)}
+                align="center"
+              >
+                {row.Todo}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="center">{row.Status}</TableCell>
+              <TableCell align="center">
+                {row.assignDate?.toLocaleString().split("T")[0] || ""}
+              </TableCell>
+              <TableCell align="center">
+                {row.modifydate?.toLocaleString().split("T")[0] || ""}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

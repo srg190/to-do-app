@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setDataInLocalStorage, uid } from "@utility/index";
+import {
+  getDataFromLocalStorage,
+  setDataInLocalStorage,
+  uid,
+} from "@utility/index";
 
 interface Tasks {
   tasks: {
@@ -13,14 +17,7 @@ interface Tasks {
 }
 
 const initialState: Tasks = {
-  tasks: {
-    id: {
-      task: "",
-      status: "todo",
-      assignDate: new Date(),
-      modifydate: new Date(),
-    },
-  },
+  tasks: { ...getDataFromLocalStorage("tasks") },
 };
 
 const taskSlice = createSlice({
@@ -28,7 +25,7 @@ const taskSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      const { task, status } = action.payload;
+      const { task } = action.payload;
       const id = uid();
       state.tasks[id] = {
         task,

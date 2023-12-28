@@ -23,7 +23,7 @@ export default function TaskForm() {
     );
     setTask("");
   };
-  console.log(tasks);
+  // React.useEffect(() => {}, [task, dispatch]);
   return (
     <div>
       <Stack
