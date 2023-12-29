@@ -1,55 +1,51 @@
-import { Box, Button, Popover } from "@mui/material";
-import { DragEvent, useState } from "react";
+import { Box, Button } from "@mui/material";
+import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import PopupBox from "@components/PopupBox";
+import { useAppDispatch, useAppSelector } from "@redux/store";
+import { dragAction } from "@redux/Slices/drag.slice";
 
-const Popup = ({
-  isSelected,
-  setIsSelected,
-}: {
-  isSelected: boolean;
-  setIsSelected: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const Popup = () => {
   const [isRTouch, setIsRTouch] = useState(false);
   const [isMTouch, setIsMTouch] = useState(false);
-  const handleModify = (e: DragEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    e.preventDefault();
-    setIsMTouch(true);
-    setIsRTouch(false);
-  };
-  const handleRemove = (e: DragEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    e.preventDefault();
-    setIsMTouch(false);
-    setIsRTouch(true);
-  };
-  const onDropHandler = (e: DragEvent<HTMLDivElement>) => {
-    console.log(e.dataTransfer.getData("Id"), " hello ---");
-    e.preventDefault();
-    e.stopPropagation();
-  };
+  const { isDragging } = useAppSelector((state) => state.drag);
+  const { removeState, dragState } = dragAction;
+  const dispatch = useAppDispatch();
+
   return (
     <>
-      <PopupBox isSelected={isSelected}>
+      <PopupBox isSelected={isDragging}>
         <Box display="flex" justifyContent="center">
           <Box margin="2px">
-            <div onDragOver={(e) => handleModify(e)} onDrop={onDropHandler}>
+            <div
+              onMouseEnter={() => setIsMTouch(true)}
+              onMouseLeave={() => setIsMTouch(false)}
+            >
               <Button
                 startIcon={<EditIcon />}
                 variant={isMTouch ? "contained" : "outlined"}
+                onClick={() => {
+                  dispatch(dragState({ isDragging: false }));
+                }}
               >
                 Modify
               </Button>
             </div>
           </Box>
           <Box margin="2px">
-            <div onDragOver={(e) => handleRemove(e)} onDrop={onDropHandler}>
+            <div
+              onMouseEnter={() => setIsRTouch(true)}
+              onMouseLeave={() => setIsRTouch(false)}
+            >
               <Button
                 startIcon={<DeleteIcon />}
                 variant={isRTouch ? "contained" : "outlined"}
                 color="error"
+                onClick={() => {
+                  dispatch(removeState({ isRemove: true }));
+                  dispatch(dragState({ isDragging: false }));
+                }}
               >
                 Remove
               </Button>

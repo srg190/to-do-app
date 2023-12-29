@@ -9,7 +9,8 @@ interface Tasks {
   tasks: {
     [id: string]: {
       task: string;
-      status: "pending" | "success" | "todo";
+      description: string;
+      status: "pending" | "success" | "todo" | "process";
       assignDate?: Date;
       modifydate?: Date;
     };
@@ -25,10 +26,11 @@ const taskSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      const { task } = action.payload;
+      const { task, description } = action.payload;
       const id = uid();
       state.tasks[id] = {
         task,
+        description,
         status: "todo",
         assignDate: new Date(),
         modifydate: new Date(),
@@ -41,11 +43,13 @@ const taskSlice = createSlice({
       setDataInLocalStorage("tasks", state.tasks);
     },
     modifyTask: (state, action) => {
-      const { id, task, status } = action.payload;
+      const { id, task, status, description } = action.payload;
       state.tasks[id] = {
         task: task || state.tasks[id].task,
         status: status || state.tasks[id].status,
+        description: description || state.tasks[id].description,
         modifydate: new Date(),
+        assignDate: state.tasks[id].assignDate,
       };
       setDataInLocalStorage("tasks", state.tasks);
     },

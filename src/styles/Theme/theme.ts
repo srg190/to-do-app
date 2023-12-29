@@ -22,7 +22,6 @@ export const tokensDark: ColorPalette = {
   },
   primary: {
     // deepPurple
-    50: "#ede7f6",
     100: "#d1c4e9",
     200: "#b39ddb",
     300: "#9575cd",

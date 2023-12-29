@@ -1,8 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import Stack from "@mui/system/Stack";
-import DragList from "@components/DragList";
-import TaskManager from "@components/Data";
 import TaskForm from "@components/TaskForm";
+import Todo from "@components/TodoComponent";
+import Popup from "@components/PopupOption";
+import AreYouSure from "@components/AreYouSure";
 
 const Home = () => {
   return (
@@ -13,6 +14,8 @@ const Home = () => {
       justifyContent="space-between"
       width="100%"
     >
+      <Popup />
+      <AreYouSure />
       <Box
         width="15%"
         height="100vh"
@@ -25,8 +28,6 @@ const Home = () => {
       >
         <Stack
           direction="column"
-          // justifyContent="space-between"
-          // alignItems="flex-start"
           spacing={2}
           width="100%"
           height="100%"
@@ -61,21 +62,12 @@ const Home = () => {
       >
         <Stack
           direction="column"
-          // justifyContent="space-between"
-          // alignItems="flex-start"
           spacing={2}
           width="100%"
           height="100%"
           flexGrow={1}
         >
-          <Box>
-            <Box margin="2%">
-              <TaskManager />
-            </Box>
-          </Box>
-          <Box>
-            <DragList />
-          </Box>
+          <Todo />
         </Stack>
       </Box>
     </Box>
