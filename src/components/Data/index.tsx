@@ -28,7 +28,6 @@ interface TaskData {
 
 export default function TaskManager() {
   const { tasks } = useAppSelector((state) => state.task);
-  const [isSelected, setIsSelected] = React.useState(false);
   const rows: TaskData[] = [];
   Object.keys(tasks).forEach((v) => {
     return rows.push(
@@ -73,9 +72,7 @@ export default function TaskManager() {
                 onDrag={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  return setIsSelected(true);
                 }}
-                onDragEnd={() => setIsSelected(false)}
                 align="center"
               >
                 {row.Todo}
