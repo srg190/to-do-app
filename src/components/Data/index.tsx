@@ -43,7 +43,7 @@ export default function TaskManager() {
   });
   return (
     <TableContainer component={Paper}>
-      <Popup isSelected={isSelected} setIsSelected={setIsSelected} />
+      <Popup />
       <Table
         sx={{ bgcolor: "background.default" }}
         stickyHeader

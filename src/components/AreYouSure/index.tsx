@@ -1,4 +1,4 @@
-import PopupBox from "@components/PopupBox";
+import PopupBox from "@components/Common/PopupBox";
 import { Box, Button, Typography } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "@redux/store";
 import { taskAction } from "@redux/Slices/task.slice";

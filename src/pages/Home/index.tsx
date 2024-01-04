@@ -4,11 +4,10 @@ import TaskForm from "@components/TaskForm";
 import Todo from "@components/TodoComponent";
 import Popup from "@components/Option";
 import AreYouSure from "@components/AreYouSure";
-// import DragList from "@components/DragList";
+import DragList from "@components/DragList";
 import Modify from "@components/ModifyTask";
 
 const Home = () => {
-
   return (
     <Box
       flexWrap="wrap"
@@ -22,7 +21,7 @@ const Home = () => {
       <Modify />
       <Box
         width="15%"
-        height="100vh"
+        height="100%"
         bgcolor="primary.light"
         margin="2%"
         borderRadius="16px"
@@ -50,9 +49,14 @@ const Home = () => {
           <Box width="100%" margin="2%">
             <TaskForm />
           </Box>
-          <Box width="100%" margin="2%">
-            {/* <DragList items={["Task1"]} /> */}
-          </Box>
+          {/* <Box>
+            <Box display="flex" justifyContent="center">
+              <Typography variant="h6">Task History</Typography>
+            </Box>
+            <Box margin="5%">
+              <DragList items={["Task1", "Task2"]} />
+            </Box>
+          </Box> */}
         </Stack>
       </Box>
       <Box

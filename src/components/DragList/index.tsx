@@ -63,7 +63,7 @@ function DraggableList({ items }: { items: string[] }) {
 
 export default function DragList({ items }: { items: string[] }) {
   return (
-    <Box className={styles.container} margin="2%">
+    <Box className={styles.container}>
       <DraggableList items={items} />
     </Box>
   );
