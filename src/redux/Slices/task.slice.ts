@@ -44,10 +44,11 @@ const taskSlice = createSlice({
     },
     modifyTask: (state, action) => {
       const { id, task, status, description } = action.payload;
+      console.log(state.tasks[id]);
       state.tasks[id] = {
         task: task || state.tasks[id].task,
-        status: status || state.tasks[id].status,
         description: description || state.tasks[id].description,
+        status: status || state.tasks[id].status,
         modifydate: new Date(),
         assignDate: state.tasks[id].assignDate,
       };

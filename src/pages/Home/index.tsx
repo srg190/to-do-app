@@ -2,10 +2,13 @@ import { Box, Typography } from "@mui/material";
 import Stack from "@mui/system/Stack";
 import TaskForm from "@components/TaskForm";
 import Todo from "@components/TodoComponent";
-import Popup from "@components/PopupOption";
+import Popup from "@components/Option";
 import AreYouSure from "@components/AreYouSure";
+// import DragList from "@components/DragList";
+import Modify from "@components/ModifyTask";
 
 const Home = () => {
+
   return (
     <Box
       flexWrap="wrap"
@@ -16,6 +19,7 @@ const Home = () => {
     >
       <Popup />
       <AreYouSure />
+      <Modify />
       <Box
         width="15%"
         height="100vh"
@@ -45,6 +49,9 @@ const Home = () => {
           </Box>
           <Box width="100%" margin="2%">
             <TaskForm />
+          </Box>
+          <Box width="100%" margin="2%">
+            {/* <DragList items={["Task1"]} /> */}
           </Box>
         </Stack>
       </Box>

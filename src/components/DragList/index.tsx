@@ -61,10 +61,10 @@ function DraggableList({ items }: { items: string[] }) {
   );
 }
 
-export default function DragList() {
+export default function DragList({ items }: { items: string[] }) {
   return (
-    <Box className={styles.container} margin="2%" >
-      <DraggableList items={"Lorem ipsum dolor sit".split(" ")} />
+    <Box className={styles.container} margin="2%">
+      <DraggableList items={items} />
     </Box>
   );
 }

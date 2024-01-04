@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useAppSelector } from "@redux/store";
-import Popup from "@components/PopupOption";
+import Popup from "@components/Option";
 
 function createData(
   Id: string,

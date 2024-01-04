@@ -2,7 +2,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Status from "@components/Status";
-import { useAppDispatch, useAppSelector } from "@redux/store";
+import { useAppDispatch } from "@redux/store";
 import { dragAction } from "@redux/Slices/drag.slice";
 import { useEffect } from "react";
 

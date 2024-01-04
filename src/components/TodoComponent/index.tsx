@@ -79,21 +79,23 @@ function Todo() {
                 <Typography variant="h4">{capitalizeFirstLetter(v)}</Typography>
               </Box>
               {data[v].map((val) =>
-                Object.keys(val).map((dat) => (
-                  <TaskCard
-                    status={val[dat].status}
-                    Id={dat}
-                    description={val[dat].description}
-                    task={val[dat].task}
-                    assignDate={
-                      val[dat].assignDate?.toLocaleString()?.split("T")[0]
-                    }
-                    key={dat}
-                    modifyDate={
-                      val[dat].modifydate?.toLocaleString()?.split("T")[0]
-                    }
-                  />
-                ))
+                Object.keys(val).map((dat) => {
+                  return (
+                    <TaskCard
+                      status={val[dat].status}
+                      Id={dat}
+                      description={val[dat].description}
+                      task={val[dat].task}
+                      assignDate={
+                        val[dat].assignDate?.toLocaleString()?.split("T")[0]
+                      }
+                      key={dat}
+                      modifyDate={
+                        val[dat].modifydate?.toLocaleString()?.split("T")[0]
+                      }
+                    />
+                  );
+                })
               )}
             </Stack>
           </div>

@@ -31,7 +31,7 @@
   touch-action: none;
 }
 
-.content > div:nth-child(1) {
+/* .content > div:nth-child(1) {
   background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
 }
 .content > div:nth-child(2) {
@@ -42,4 +42,10 @@
 }
 .content > div:nth-child(4) {
   background: linear-gradient(135deg, #c3cfe2 0%, #c3cfe2 100%);
+} */
+.content > div:nth-child(even) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+.content > div:nth-child(odd) {
+  background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
 }

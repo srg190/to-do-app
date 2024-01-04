@@ -10,7 +10,7 @@ const Popup = () => {
   const [isRTouch, setIsRTouch] = useState(false);
   const [isMTouch, setIsMTouch] = useState(false);
   const { isDragging } = useAppSelector((state) => state.drag);
-  const { removeState, dragState } = dragAction;
+  const { removeState, dragState, modifyState } = dragAction;
   const dispatch = useAppDispatch();
 
   return (
@@ -27,6 +27,7 @@ const Popup = () => {
                 variant={isMTouch ? "contained" : "outlined"}
                 onClick={() => {
                   dispatch(dragState({ isDragging: false }));
+                  dispatch(modifyState({ isModify: true }));
                 }}
               >
                 Modify

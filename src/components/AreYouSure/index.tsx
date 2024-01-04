@@ -10,15 +10,13 @@ const AreYouSure = () => {
   const { removeState } = dragAction;
   const { isRemove, Id } = useAppSelector((s) => s.drag);
   return (
-    <PopupBox isSelected={isRemove}>
+    <PopupBox isSelected={isRemove || false}>
       <Box display="flex" justifyContent="center">
         <Box margin="2%" padding="10px">
           <Button
             variant="contained"
             onClick={() => {
-              console.log(Id, "Before call");
               dispatch(removeTask({ id: Id }));
-              console.log(Id, "after call");
               dispatch(removeState({ isRemove: false }));
             }}
           >
