@@ -26,8 +26,11 @@
       "@styles/*": ["./src/styles/*"],
       "@pages/*": ["./src/pages/*"],
       "@redux/*": ["./src/redux/*"],
-      "@utility/*": ["./src/utility/*"]
-    }
+      "@utility/*": ["./src/utility/*"],
+      "@constant/*": ["./src/constant/*"],
+      "@src/*": ["./src/*"]
+    },
+    "esModuleInterop": true
   },
   "references": [{ "path": "./tsconfig.node.json" }],
   "include": ["src"]

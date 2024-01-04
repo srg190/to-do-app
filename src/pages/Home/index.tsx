@@ -49,14 +49,14 @@ const Home = () => {
           <Box width="100%" margin="2%">
             <TaskForm />
           </Box>
-          {/* <Box>
+          <Box>
             <Box display="flex" justifyContent="center">
               <Typography variant="h6">Task History</Typography>
             </Box>
-            <Box margin="5%">
+            {/* <Box margin="5%">
               <DragList items={["Task1", "Task2"]} />
-            </Box>
-          </Box> */}
+            </Box> */}
+          </Box>
         </Stack>
       </Box>
       <Box

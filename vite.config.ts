@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import * as path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,6 +12,7 @@ export default defineConfig({
       "@src": "/src",
       "@redux": "/src/redux",
       "@utility": "/src/utility",
+      "@constant": "/src/constant",
     },
   },
 });
