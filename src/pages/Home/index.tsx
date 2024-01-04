@@ -4,7 +4,7 @@ import TaskForm from "@components/TaskForm";
 import Todo from "@components/TodoComponent";
 import Popup from "@components/Option";
 import AreYouSure from "@components/AreYouSure";
-import DragList from "@components/DragList";
+// import DragList from "@components/DragList";
 import Modify from "@components/ModifyTask";
 
 const Home = () => {

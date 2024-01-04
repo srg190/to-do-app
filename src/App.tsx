@@ -1,10 +1,5 @@
-import { useMemo, useState } from "react";
-import {
-  createTheme,
-  CssBaseline,
-  PaletteMode,
-  ThemeProvider,
-} from "@mui/material";
+import { useMemo } from "react";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { themeSettings } from "./styles/Theme/theme";
 import {
   BrowserRouter as Router,
