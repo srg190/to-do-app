@@ -34,7 +34,6 @@ describe("test cases for are you sure", () => {
     rerender(<AreYouSure test={false} />);
     await user.click(textElement);
 
-    // const reTextElement = screen.getByText("Sure");
     expect(screen.queryByText("Sure")).toBeNull();
   });
 
@@ -47,7 +46,6 @@ describe("test cases for are you sure", () => {
     rerender(<AreYouSure test={false} />);
     await user.click(textElement);
 
-    // const reTextElement = screen.getByText("Cancel");
     expect(screen.queryByText("Cancel")).toBeNull();
   });
 });

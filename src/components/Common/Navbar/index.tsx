@@ -11,6 +11,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
 import { useAppDispatch, useAppSelector } from "@redux/store";
 import { themeAction } from "@redux/Slices/theme.slice";
+import { Mode } from "@constant/TestIds";
 
 function Navbar() {
   const { mode } = useAppSelector((state) => state.theme);
@@ -66,11 +67,15 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton onClick={() => dispatch(togleTheme())}>
+            <IconButton
+              data-testid={Mode.CHANGE_MODE}
+              onClick={() => dispatch(togleTheme())}
+            >
               {mode === "light" ? <ModeNightIcon /> : <LightModeIcon />}
             </IconButton>
           </Box>
         </Toolbar>
+        <p data-testid={Mode.TEST_ID}>{mode}</p>
       </Container>
     </AppBar>
   );
