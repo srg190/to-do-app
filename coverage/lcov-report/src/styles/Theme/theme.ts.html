@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -187,7 +187,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -232,26 +232,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">32x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -305,7 +305,7 @@ import { PaletteMode } from "@mui/material";
 interface ColorPalette {
   [key: string]: Record&lt;string, string&gt;;
 }
-export const <span class="cstat-no" title="statement not covered" >tokensDark: ColorPalette = {</span>
+export const tokensDark: ColorPalette = {
   grey: {
     0: "#ffffff",
     10: "#f6f6f6",
@@ -349,27 +349,27 @@ export const <span class="cstat-no" title="statement not covered" >tokensDark: C
 };
 &nbsp;
 // function that reverses the color palette
-function <span class="fstat-no" title="function not covered" >reverseTokens(</span>tokensDark: ColorPalette): ColorPalette {
-  const reversedTokens: ColorPalette = <span class="cstat-no" title="statement not covered" >{};</span>
-<span class="cstat-no" title="statement not covered" >  Object.entries(tokensDark).forEach(</span>
-<span class="fstat-no" title="function not covered" >    ([</span>key, val]: [string, Record&lt;string, string&gt;]) =&gt; {
-      const keys = <span class="cstat-no" title="statement not covered" >Object.keys(val);</span>
-      const values = <span class="cstat-no" title="statement not covered" >Object.values(val);</span>
-      const length = <span class="cstat-no" title="statement not covered" >keys.length;</span>
-      const reversedObj: Record&lt;string, string&gt; = <span class="cstat-no" title="statement not covered" >{};</span>
-<span class="cstat-no" title="statement not covered" >      for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >        reversedObj[keys[i]] = values[length - i - 1];</span>
+function reverseTokens(tokensDark: ColorPalette): ColorPalette {
+  const reversedTokens: ColorPalette = {};
+  Object.entries(tokensDark).forEach(
+    ([key, val]: [string, Record&lt;string, string&gt;]) =&gt; {
+      const keys = Object.keys(val);
+      const values = Object.values(val);
+      const length = keys.length;
+      const reversedObj: Record&lt;string, string&gt; = {};
+      for (let i = 0; i &lt; length; i++) {
+        reversedObj[keys[i]] = values[length - i - 1];
       }
-<span class="cstat-no" title="statement not covered" >      reversedTokens[key] = reversedObj;</span>
+      reversedTokens[key] = reversedObj;
     }
   );
-<span class="cstat-no" title="statement not covered" >  return reversedTokens;</span>
+  return reversedTokens;
 }
-export const <span class="cstat-no" title="statement not covered" >tokensLight: ColorPalette = reverseTokens(tokensDark);</span>
+export const tokensLight: ColorPalette = reverseTokens(tokensDark);
 &nbsp;
 // mui theme settings
-export const <span class="cstat-no" title="statement not covered" >themeSettings = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>m</span>ode: PaletteMode) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  return {</span>
+export const themeSettings = (mode: PaletteMode) =&gt; {
+  return {
     palette: {
       mode: mode,
       ...(mode === "dark"
@@ -393,7 +393,7 @@ export const <span class="cstat-no" title="statement not covered" >themeSettings
               alt: tokensDark.primary[500],
             },
           }
-        : {
+        : <span class="branch-1 cbranch-no" title="branch not covered" >{</span>
             // palette values for light mode
             primary: {
               ...tokensLight.primary,
@@ -424,7 +424,7 @@ export const <span class="cstat-no" title="statement not covered" >themeSettings
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-04T14:25:22.883Z
+                at 2024-01-05T07:32:16.531Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

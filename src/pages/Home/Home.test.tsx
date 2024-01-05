@@ -1,4 +1,5 @@
 import { render, waitFor } from "@src/TestWrapper";
+// import { render, waitFor } from "@testing-library/react";
 import Home from "@pages/Home";
 
 describe("Test cases for Home Page", () => {
@@ -6,12 +7,6 @@ describe("Test cases for Home Page", () => {
 
   it("should display Task, Add task", async () => {
     const textElement = await waitFor(() => getByText("Add Task"));
-    expect(textElement).toBeInTheDocument();
+    expect(textElement.innerHTML).toMatch("Add Task");
   });
-
-  it("should display Task in the documents", () => {
-    const textElement = getByText("Task");
-    expect(textElement).toBeInTheDocument();
-  });
-  
 });

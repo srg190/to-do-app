@@ -1,5 +1,8 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
+
 export default {
   collectCoverage: true,
+  preset: 'ts-jest',
   collectCoverageFrom: ["src/**/*.tsx", "src/**/*.ts"],
   modulePaths: ["<rootDir>/"],
   transform: {
@@ -11,7 +14,7 @@ export default {
   moduleFileExtensions: ["js", "ts", "tsx", "json"],
   transformIgnorePatterns: ["node_modules/(?!(axios|react-toastify))"],
   watchPathIgnorePatterns: ["<rootDir>/node_modules"],
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-environment-jsdom",
   moduleNameMapper: {
     "^@components/(.*)": "<rootDir>/src/components/$1",
     "^@styles/(.*)": "<rootDir>/src/styles/$1",
