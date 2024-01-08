@@ -5,6 +5,7 @@ import { Box, Button, Input } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "@redux/store";
 import { taskAction } from "@redux/Slices/task.slice";
 import { dragAction } from "@redux/Slices/drag.slice";
+import { InputId } from "@constant/TestIds";
 
 export default function TaskForm({ Id }: { Id?: string }) {
   const { tasks } = useAppSelector((state) => state.task);
@@ -58,6 +59,7 @@ export default function TaskForm({ Id }: { Id?: string }) {
             fullWidth
             required
             error={task.length > 0 ? false : true}
+            data-testid={InputId.TASK}
           />
         </Box>
         <Box width="100%">
@@ -68,6 +70,7 @@ export default function TaskForm({ Id }: { Id?: string }) {
             fullWidth
             required
             error={description && description.length > 0 ? false : true}
+            data-testid={InputId.DESCRIPTION}
           />
         </Box>
         <Box width="100%" display="flex" justifyContent="center">
@@ -76,15 +79,17 @@ export default function TaskForm({ Id }: { Id?: string }) {
               {Id ? "Modify" : "Add"}
             </Button>
           </Box>
-          {Id && <Box margin="2%">
-            <Button
-              variant="outlined"
-              color="primary"
-              onClick={() => dispatch(modifyState({ isModify: false }))}
-            >
-              Cancel
-            </Button>
-          </Box>}
+          {Id && (
+            <Box margin="2%">
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={() => dispatch(modifyState({ isModify: false }))}
+              >
+                Cancel
+              </Button>
+            </Box>
+          )}
         </Box>
       </Stack>
     </div>

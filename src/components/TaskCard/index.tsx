@@ -27,9 +27,13 @@ export default function TaskCard({
   const { dragState } = dragAction;
 
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
-    e.dataTransfer.setData("Id", Id);
-    e.dataTransfer.effectAllowed = "move";
-    e.dataTransfer.dropEffect = "move";
+    if (e.dataTransfer) {
+      e.dataTransfer.setData("Id", Id);
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.dropEffect = "move";
+    } else {
+      console.error("dataTransfer is not available in this event."); // Handle the error
+    }
   };
   useEffect(() => {}, [dispatch]);
   return (
@@ -40,6 +44,7 @@ export default function TaskCard({
       onDrag={(e) => {
         e.preventDefault();
         e.stopPropagation();
+        handleDragStart(e);
       }}
       onDoubleClick={() => dispatch(dragState({ isDragging: true, Id }))}
     >

@@ -4,19 +4,11 @@ import { Box, Typography } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "@redux/store";
 import { taskAction } from "@redux/Slices/task.slice";
 import { capitalizeFirstLetter } from "@utility/index";
+import { Task } from "@components/Interface";
 
-interface Task {
-  [id: string]: {
-    task: string;
-    description: string;
-    status: "pending" | "success" | "todo" | "process";
-    assignDate?: Date;
-    modifydate?: Date;
-  };
-}
 type MyObj = Record<string, Task[]>;
 
-function Todo() {
+function Todo({ Data }: { Data?: Task }) {
   const { tasks } = useAppSelector((state) => state.task);
   const dispatch = useAppDispatch();
   const { modifyTask } = taskAction;
@@ -27,37 +19,43 @@ function Todo() {
     process: [],
     success: [],
   };
-  Object.keys(tasks).forEach((v) => {
-    data[tasks[v].status].push({
+  const todoData = Data ? Data : tasks;
+  Object.keys(todoData).forEach((v) => {
+    data[todoData[v].status].push({
       [v]: {
-        task: tasks[v].task,
-        description: tasks[v].description,
-        status: tasks[v].status,
-        assignDate: tasks[v].assignDate,
-        modifydate: tasks[v].modifydate,
+        task: todoData[v].task,
+        description: todoData[v].description,
+        status: todoData[v].status,
+        assignDate: todoData[v].assignDate,
+        modifydate: todoData[v].modifydate,
       },
     });
   });
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
     e.stopPropagation();
   };
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>, val: string) => {
-    const Id = e.dataTransfer.getData("Id");
-    if (tasks[Id].status !== val) {
-      dispatch(
-        modifyTask({
-          id: Id,
-          status: val,
-        })
-      );
-    }
     e.preventDefault();
+    const Id = e.dataTransfer.getData("Id");
+    console.log("Id --> ", Id);
+    if (todoData[Id].status !== val) {
+      if (Data) {
+        Data[Id].status = val as "pending" | "success" | "todo" | "process";
+      } else {
+        dispatch(
+          modifyTask({
+            id: Id,
+            status: val,
+          })
+        );
+      }
+    }
     e.stopPropagation();
   };
-  // useEffect(() => {}, [dispatch, handleDrop, modifyTask]);
 
   return (
     <Box margin="2%" height="100%">

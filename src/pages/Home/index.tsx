@@ -6,8 +6,9 @@ import Popup from "@components/Option";
 import AreYouSure from "@components/AreYouSure";
 // import DragList from "@components/DragList";
 import Modify from "@components/ModifyTask";
+import { Task } from "@components/Interface";
 
-const Home = () => {
+const Home = ({ Data }: { Data?: Task }) => {
   return (
     <Box
       flexWrap="wrap"
@@ -78,7 +79,7 @@ const Home = () => {
           height="100%"
           flexGrow={1}
         >
-          <Todo />
+          <Todo Data={Data} />
         </Stack>
       </Box>
     </Box>
