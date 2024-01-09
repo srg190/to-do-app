@@ -16,6 +16,7 @@ describe("test cases for ToDo list", () => {
     const success = getByText(TodoState.SUCCESS);
     const todo = getByText(TodoState.TODO);
     const process = getByText(TodoState.PROCESS);
+    
     expect(pending.innerHTML).toEqual(TodoState.PENDING);
     expect(success.innerHTML).toEqual(TodoState.SUCCESS);
     expect(todo.innerHTML).toEqual(TodoState.TODO);

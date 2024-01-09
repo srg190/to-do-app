@@ -1,9 +1,10 @@
 import Stack from "@mui/system/Stack";
-import TaskCard from "@components/TaskCard";
 import { Box, Typography } from "@mui/material";
+
 import { useAppDispatch, useAppSelector } from "@redux/store";
-import { taskAction } from "@redux/Slices/task.slice";
 import { capitalizeFirstLetter } from "@utility/index";
+import { taskAction } from "@redux/Slices/task.slice";
+import TaskCard from "@components/TaskCard";
 import { Task } from "@components/Interface";
 
 type MyObj = Record<string, Task[]>;
